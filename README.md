@@ -2,7 +2,7 @@
 
 ## Workflow Mindmap - User Stories / Domain Modelling / MVC
 
-[Workflow Mindmap](https://github.com/CorinneBosch/Bookmarker/public/Workflow_mindmap.png)
+[Workflow Mindmap](https://github.com/CorinneBosch/Bookmarker/blob/main/public/Workflow_mindmap.png)
 
 ### To set up the database
 
