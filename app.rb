@@ -1,3 +1,4 @@
+# require 'bookmarks'
 require 'sinatra/base'
 require 'sinatra/reloader'
 
