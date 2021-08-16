@@ -1,7 +1,10 @@
 class Bookmarks
-  attr_reader :folder
 
-  def initialize(folder = [])
-    @folder = folder
+  def self.all
+    [
+      "https://www.mozilla.org/en-GB/",
+      "https://ruby-doc.org/",
+      "https://www.codewars.com/"
+    ]
   end
 end

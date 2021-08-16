@@ -1,7 +1,8 @@
 feature 'bookmark route is available' do
   scenario 'able to view the bookmarks' do
-    visit('/')
-    click_button('Bookmarks')
-    expect(page).to have_content('Firefox')
+    visit('/bookmarks')
+    expect(page).to have_content("https://www.mozilla.org/en-GB/")
+    expect(page).to have_content("https://ruby-doc.org/")
+    expect(page).to have_content("https://www.codewars.com/")
   end
 end

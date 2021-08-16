@@ -2,9 +2,15 @@ require 'bookmarks'
 
 describe Bookmarks do
 
-  context '#initialize' do
-    it 'is expected to have empty folder' do
-      expect(subject.folder).to eq([])
+  let(:bookmarks) { Bookmarks.all }
+
+  context '#self.all' do
+    it 'returns all bookmarks' do
+      expect(bookmarks).to include(
+      "https://www.mozilla.org/en-GB/",
+      "https://ruby-doc.org/",
+      "https://www.codewars.com/"
+      )
     end
   end
 end
