@@ -3,10 +3,13 @@ require 'pg'
 class Bookmarks
 
   def self.all
-    begin
+    if ENV['RACK_ENV'] == 'test'
+      con = PG.connect :dbname => 'bookmark_manager_test'
+    else
       con = PG.connect :dbname => 'bookmark_manager'
-      rs = con.exec "SELECT * FROM bookmarks"
-      rs.map { |row| row['url'] }
     end
+    
+    rs = con.exec "SELECT * FROM bookmarks"
+    rs.map { |row| row['url'] }
   end
 end
