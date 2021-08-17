@@ -6,7 +6,11 @@
   </head>
   <body>
     <section id='box'>
-      <%= @bookmarks %>
+      <ul>
+        <% @bookmarks.each do |bookmark| %>
+          <li><%= bookmark %></li>
+          <% end %>
+      </ul>
     </section>
   </body>
 </html>

@@ -6,9 +6,11 @@ describe Bookmarks do
 
   context '#self.all' do
     it 'returns all bookmarks' do
-      expect { bookmarks }.to output(
-      "http://www.makersacademy.com/\nhttp://www.google.com/\nhttp://www.destroyallsoftware.com\n"
-      ).to_stdout
+      expect(bookmarks).to include(
+      "http://www.makersacademy.com/",
+      "http://www.google.com/",
+      "http://www.destroyallsoftware.com"
+      )
     end
   end
 end
