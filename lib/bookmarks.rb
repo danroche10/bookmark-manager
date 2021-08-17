@@ -1,10 +1,17 @@
+require 'pg'
+
 class Bookmarks
 
   def self.all
-    [
-      "https://www.mozilla.org/en-GB/",
-      "https://ruby-doc.org/",
-      "https://www.codewars.com/"
-    ]
+    begin
+      con = PG.connect :dbname => 'bookmark_manager'
+      rs = con.exec "SELECT * FROM bookmarks"
+      rs.each { |row| puts row['url'] }
+    rescue PG::Error => exception
+      "Error"
+    ensure
+      rs.clear if rs
+      con.close if con
+    end
   end
 end
