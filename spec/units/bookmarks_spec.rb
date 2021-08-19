@@ -1,8 +1,10 @@
 require 'bookmarks'
+require_relative './database_helpers'
 
 describe Bookmarks do
 
   let(:bookmarks) { Bookmarks.all }
+  let(:bookmark_object) {}
 
   describe '#self.all' do
     it 'returns all bookmarks' do
@@ -16,7 +18,8 @@ describe Bookmarks do
 
   describe "#self.add" do
     it "should add bookmark to database" do
-      Bookmarks.add('http://www.facebook.com/')
+      bookmark = Bookmarks.add('http://www.facebook.com/', 'Facebook')
+      persisted_data = persisted_data(id: bookmark.id)
       expect(bookmarks).to include('http://www.facebook.com/')
     end
   end
