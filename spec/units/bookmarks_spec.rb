@@ -2,10 +2,7 @@ require 'bookmarks'
 require_relative './database_helpers'
 
 describe Bookmarks do
-
-  let(:bookmarks) { Bookmarks.all }
-  let(:bookmark_object) {}
-
+  
   describe '#self.all' do
     it 'returns all bookmarks' do
 
