@@ -2,7 +2,7 @@ require 'bookmarks'
 require_relative './database_helpers'
 
 describe Bookmarks do
-  
+
   describe '#self.all' do
     it 'returns all bookmarks' do
 
@@ -29,4 +29,19 @@ describe Bookmarks do
       expect(bookmark.url).to eq 'http://www.facebook.com/'
     end
   end
+
+  describe '.delete' do
+    it 'deletes the given bookmark' do
+      bookmark = Bookmarks.add('http://www.facebook.com/', 'Facebook')
+      
+      Bookmarks.delete(bookmark.id)
+
+      expect(Bookmarks.all.length).to eq 3
+    end
+  end
+
+
+
+
+
 end
