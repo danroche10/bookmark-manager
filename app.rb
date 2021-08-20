@@ -31,13 +31,12 @@ class BookmarkManager < Sinatra::Base
   end
 
   get '/bookmarks/:id' do
-    @article = Article.find(params[:id])
+    @bookmark = Bookmarks.find(params[:id])
     erb :show
   end
 
   get '/bookmarks/:id/edit' do
     @bookmark = Bookmarks.find(params[:id])
-    @bookmark_id = @bookmark.id
     erb :edit
   end
 
@@ -45,7 +44,7 @@ class BookmarkManager < Sinatra::Base
     Bookmarks.update(id: params[:id], title: params[:title], url: params[:url])
     redirect('/bookmarks')
   end
-  
+
   run! if app_file == $0
 
 end
