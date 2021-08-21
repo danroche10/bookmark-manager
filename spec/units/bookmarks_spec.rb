@@ -7,14 +7,15 @@ describe Bookmarks do
     it 'returns all bookmarks' do
 
       bookmark = Bookmarks.add("http://bbc.co.uk", "BBC")
+      Bookmarks.add('http://www.facebook.com', 'Facebook')
 
       bookmarks = Bookmarks.all
       
-      expect(bookmarks.length).to eq 4
+      expect(bookmarks.length).to eq 2
       expect(bookmarks.first).to be_a Bookmarks
-      expect(bookmarks.last.id).to eq bookmark.id
-      expect(bookmarks.first.title).to eq 'Makers'
-      expect(bookmarks.first.url).to eq 'http://www.makersacademy.com/'
+      expect(bookmarks.first.id).to eq bookmark.id
+      expect(bookmarks.first.title).to eq 'BBC'
+      expect(bookmarks.first.url).to eq 'http://bbc.co.uk'
     end
   end
 
@@ -33,17 +34,17 @@ describe Bookmarks do
   describe '.delete' do
     it 'deletes the given bookmark' do
       bookmark = Bookmarks.add('http://www.facebook.com/', 'Facebook')
+      Bookmarks.add('http://www.makersacademy.com', 'Makers Academy')
       
       Bookmarks.delete(bookmark.id)
 
-      expect(Bookmarks.all.length).to eq 3
+      expect(Bookmarks.all.length).to eq 1
     end
   end
 
   describe '.find' do
     it 'returns the requested bookmark object' do
       bookmark = Bookmarks.add('http://www.makersacademy.com', 'Makers Academy')
-
       result = Bookmarks.find(bookmark.id)
       expect(result.title).to eq 'Makers Academy'
       expect(result.url).to eq 'http://www.makersacademy.com'
